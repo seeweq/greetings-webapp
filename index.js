@@ -12,7 +12,6 @@ app.use(bodyParser.json())
 
 app.use(express.static('public'));
 
-
 app.get('/greetings', function(req, res) {
   console.log(process.env.MY_NAME)
   res.render('index')
@@ -22,7 +21,6 @@ app.get('/greetings', function(req, res) {
   var message = '';
   var language = req.body.language;
   var nameGreeted = req.body.firstName;
-
 
   if(language === 'english'){
     message = 'Hello, ' + nameGreeted;
