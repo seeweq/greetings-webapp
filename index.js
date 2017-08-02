@@ -1,23 +1,50 @@
 var express = require('express')
+var exphbs  = require('express-handlebars');
+var bodyParser = require('body-parser');
 var app = express()
-var server = app.listen(3000);
-var namesGreeted = [];
-app.get('/greetings/:name', function(req , res){
-  res.send('Hello, ' + req.params.name);
-  namesGreeted.push(req.params.name);
-});
-app.get('/greeted/', function(req , res){
-res.send(namesGreeted);
-})
+var counter = 0;
 
-app.get('/counter/:user_name',function(req , res){
-var users = req.params.user_name;
-var map ={}
-for(var i=0; i<namesGreeted.length; i++){
-  var countNamesGreeted = namesGreeted[i];
-  map[countNamesGreeted]=map[countNamesGreeted] ?
-  map[countNamesGreeted]+1:1;
+app.engine('handlebars', exphbs({defaultLayout: 'main'}))
+app.set('view engine', 'handlebars');
 
-}
-res.send('Hello, ' + users + ' has been greeted ' +   map[countNamesGreeted] + ' times' );
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
+
+app.use(express.static('public'));
+
+
+app.get('/greetings', function(req, res) {
+  console.log(process.env.MY_NAME)
+  res.render('index')
 });
+
+  app.post('/greetings', function(req ,res){
+  var message = '';
+  var language = req.body.language;
+  var nameGreeted = req.body.firstName;
+
+
+  if(language === 'english'){
+    message = 'Hello, ' + nameGreeted;
+    counter++;
+  }
+  else if (language === 'afrikaans') {
+  message = 'Hallo, ' + nameGreeted ;
+  counter++;
+  }
+  else if (language ==='isiXhosa'){
+  message = 'Molo, ' + nameGreeted ;
+  counter++;
+   }
+
+   res.render('index',{
+     outputMessage : message,
+     outputCounter : counter
+   })
+
+ });
+
+var port = 3000;
+ app.listen(process.env.PORT || port , function() {
+   console.log('app is now listening :'+ port);
+ });

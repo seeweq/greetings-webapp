@@ -1,0 +1,13 @@
+body{
+  background-color: #660033;
+  text-align: center;
+  color: #00cc99;
+}
+h1{
+  
+  font-size: 60px;
+}
+
+hr {
+  visibility: hidden;
+}
