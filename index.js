@@ -17,7 +17,7 @@ app.get('/', function(req, res) {
   res.render('index')
 });
 
-  app.post('/greetings', function(req ,res){
+  app.post('/', function(req ,res){
   var message = '';
   var language = req.body.language;
   var nameGreeted = req.body.firstName;
