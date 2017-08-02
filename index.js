@@ -3,6 +3,9 @@ var exphbs  = require('express-handlebars');
 var bodyParser = require('body-parser');
 var app = express()
 var counter = 0;
+ var mongoose = require('mongoose')
+ var Schema = mongoose.Schema
+ var CountNames = require('./mongo')
 
 app.engine('handlebars', exphbs({defaultLayout: 'main'}))
 app.set('view engine', 'handlebars');
@@ -25,14 +28,26 @@ app.get('/', function(req, res) {
   if(language === 'english'){
     message = 'Hello, ' + nameGreeted;
     counter++;
+    CountNames.create({
+      name : nameGreeted,
+      counter : counter
+    });
   }
   else if (language === 'afrikaans') {
   message = 'Hallo, ' + nameGreeted ;
   counter++;
+  CountNames.create({
+    name : nameGreeted,
+    counter : counter
+  });
   }
   else if (language ==='isiXhosa'){
   message = 'Molo, ' + nameGreeted ;
   counter++;
+  CountNames.create({
+    name : nameGreeted,
+    counter : counter
+  });
    }
 
    res.render('index',{
