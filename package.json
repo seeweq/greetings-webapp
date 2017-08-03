@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "engines": {
-   "node": "6.0.0"
- },
+    "node": "6.0.0"
+  },
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
@@ -12,12 +12,13 @@
   "dependencies": {
     "body-parser": "^1.17.2",
     "express": "^4.15.3",
-    "express-handlebars": "^3.0.0"
+    "express-handlebars": "^3.0.0",
+    "mongodb": "^2.2.30"
   },
   "repository": {
-   "type": "git",
-   "url": "https://github.com/heroku/pure-atoll-19806.git"
- },
+    "type": "git",
+    "url": "https://github.com/heroku/pure-atoll-19806.git"
+  },
   "devDependencies": {},
   "author": "",
   "license": "ISC"
