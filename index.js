@@ -94,6 +94,6 @@ app.listen(process.env.PORT || port, function() {
   console.log('app is now listening :' + port);
 });
 
-const mongoURL = process.env.MONGO_DB_URL || "mongodb://localhost/index";
+//const mongoURL = process.env.MONGO_DB_URL || "mongodb://localhost/index";
 
-mongoose.connect(mongoURL);
+//mongoose.connect(mongoURL);

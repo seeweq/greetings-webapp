@@ -1,5 +1,6 @@
 var mongoose = require('mongoose')
-mongoose.connect('mongodb://localhost/index', {
+const MongoURL = 'mongodb://Sivu:tshula17@ds149437.mlab.com:49437/greeting-webapp'
+mongoose.connect(MongoURL, {
   useMongoClient: true
 });
 
