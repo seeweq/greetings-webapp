@@ -1,35 +1,46 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="styles.css">
-    <title>greeting</title>
-  </head>
-  <body>
 
-<h1>Greetings App</h1>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="styles.css">
+  <title>greeting</title>
+</head>
 
-<form class="greetingsInput" action="/" method="post">
-  <h2>Welcome, please greet below!</h2>
-  <input type="text" class="textBox" name="firstName"  placeholder="Please enter your name here!">
+<body>
+
+  <h1>Greetings App</h1>
+
+  <form class="greetingsInput" action="/" method="post">
+    <h2>Welcome, please greet below!</h2>
+    <input type="text" class="textBox" name="firstName" placeholder="Please enter your name here!">
+    <hr>
+    <h3>Choose a language of your chioce.</h3>
+    <div id="radiobton">
+      <input type="radio" name="language" value="english">English
+      <input type="radio" name="language" value="isiXhosa">IsiXhosa
+      <input type="radio" name="language" value="afrikaans">Afrikaans
+    </div>
+    <hr>
+    <button type="submit" name="button">Greet Me</button>
+  </form>
+
+
+
+
   <hr>
-  <h3>Choose a language of your chioce.</h3>
-  <div id="radiobton">
-    <input type="radio" name="language" value="english">English
-    <input type="radio" name="language" value="isiXhosa">IsiXhosa
-    <input type="radio" name="language" value="afrikaans">Afrikaans
+
+  <div>
+    {{outputMessage}}
   </div>
-  <hr>
-  <button type="submit" name="button">Greet Me</button>
-</form>
-
-<hr>
-
-<div>
-{{outputMessage}}
-</div>
-<div>
-  {{outputCounter}}
-</div>
+  <div>
+    {{outputCounter}}
+  </div>
+  
+  <br></br>
+  <form class="counterReset" action="reset" method="post">
+    <button type="submit" name="button">Reset</button>
+  </form>
 </body>
+
 </html>
