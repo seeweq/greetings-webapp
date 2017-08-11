@@ -5,7 +5,7 @@ var app = express()
 var mongoose = require('mongoose')
 var Schema = mongoose.Schema
 var models = require('./model')
-// storing function
+
 function storeName(name, cb) {
   models.PeopleGreeted.findOne({
       name: name
@@ -48,29 +48,25 @@ app.get('/', function(req, res) {
 
 
 app.post('/', function(req, res) {
-  //var counter = 0;
+
   var message = '';
   var newGreet = req.body.firstName;
   var language = req.body.language;
 
-  // function checkUniqueName(){
-  // }
+
 
   if (language === 'english') {
     message = 'Hello, ' + newGreet;
-    //counter++;
+
   } else if (language === 'afrikaans') {
     message = 'Hallo, ' + newGreet;
-    //counter++;
+
   } else if (language === 'isiXhosa') {
     message = 'Molo, ' + newGreet;
   }
 
   storeName(newGreet, function() {
-    // var nameGreeted = {};
-    // if (nameGreeted[newGreet] === undefined) {
-    //   //counter++
-    // }
+
     models.PeopleGreeted.count({}, function(err, counter) {
       if (err) {
         return err;
@@ -79,8 +75,7 @@ app.post('/', function(req, res) {
           outputMessage: message,
           outputCounter: counter
         })
-        //   checkUniqueName(function(){
-        //  });
+
       }
     });
   });
