@@ -1,6 +1,6 @@
 var mongoose = require('mongoose')
-const MongoURL = 'mongodb://Sivu:tshula17@ds149437.mlab.com:49437/greeting-webapp'
-mongoose.connect(MongoURL, {
+const mongoURL = process.env.MONGO_DB_URL || "mongodb://localhost/greetedNames";
+mongoose.connect(mongoURL, {
   useMongoClient: true
 });
 

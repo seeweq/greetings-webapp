@@ -17,13 +17,12 @@ function storeName(name, cb) {
       if (!greetingPerson) {
         var newNamesGreeted = new models.PeopleGreeted({
           name: name,
-          count: 1
+          counter: 1
         })
         newNamesGreeted.save(cb);
       } else if (greetingPerson) {
-        cb(null, {
-          name
-        })
+      greetingPerson.counter++;
+      greetingPerson.save(cb);
       }
     })
 };
@@ -45,6 +44,8 @@ app.get('/', function(req, res) {
   var newGreet = req.body.firstName
   res.render('index')
 })
+
+
 
 
 app.post('/', function(req, res) {
@@ -89,11 +90,18 @@ app.post('/reset', function(req, res) {
 
   });
 });
+app.get('/greeted', function(req, res){
+  models.PeopleGreeted.find({}, function(err,name){
+    if(err){
+      return err;
+    }
+  res.render('index', {name})
+})
+})
 var port = 3000;
 app.listen(process.env.PORT || port, function() {
   console.log('app is now listening :' + port);
 });
 
-//const mongoURL = process.env.MONGO_DB_URL || "mongodb://localhost/index";
-
-//mongoose.connect(mongoURL);
+ //const mongoURL = process.env.MONGO_DB_URL || "mongodb://localhost/index";
+ //mongoose.connect(mongoURL);

@@ -36,11 +36,21 @@
   <div>
     {{outputCounter}}
   </div>
-  
+
   <br></br>
   <form class="counterReset" action="reset" method="post">
     <button type="submit" name="button">Reset</button>
   </form>
+
+  <br></br>
+<form class="linkForNames" action="greeted" method="post" >
+  <a href="/greeted"  >View All Greeted Names</a>
+  </form>
+<div class="allNamesGreeted">
+  {{#each name }}
+    <br> <a href="/greeted">{{name}}<a></br>
+       {{/each}}
+</div>
 </body>
 
 </html>
