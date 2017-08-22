@@ -46,11 +46,11 @@
 <form class="linkForNames" action="greeted" method="post" >
   <a href="/greeted"  >View All Greeted Names</a>
   </form>
-<div class="allNamesGreeted">
+  <form action="/greeted" method="post">
   {{#each name }}
-    <br> <a href="/greeted">{{name}}<a></br>
+    <br> <a href="/greeted/{{name}}">{{name}}<a></br>
        {{/each}}
-</div>
+</form>
 </body>
 
 </html>
