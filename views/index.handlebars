@@ -1,16 +1,4 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-  <meta charset="utf-8">
-  <link rel="stylesheet" href="styles.css">
-  <title>greeting</title>
-</head>
-
-<body>
-
-  <h1>Greetings App</h1>
-
+<h1>Greetings App</h1>
   <form class="greetingsInput" action="/" method="post">
     <h2>Welcome, please greet below!</h2>
     <input type="text" class="textBox" name="firstName" placeholder="Please enter your name here!">
@@ -43,14 +31,6 @@
   </form>
 
   <br></br>
-<form class="linkForNames" action="greeted" method="post" >
-  <a href="/greeted"  >View All Greeted Names</a>
+<form  action="greeted" method="post" >
+  <a class="linkForNames" href="/greeted"  >View All Greeted Names</a>
   </form>
-  <form action="/greeted" method="post">
-  {{#each name }}
-    <br> <a href="/greeted/{{name}}">{{name}}<a></br>
-       {{/each}}
-</form>
-</body>
-
-</html>

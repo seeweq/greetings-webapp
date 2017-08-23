@@ -91,33 +91,30 @@ app.post('/reset', function(req, res) {
   });
 });
 app.get('/greeted', function(req, res) {
-      models.PeopleGreeted.find({}, function(err, name) {
-        if (err) {
-          return err;
-        }
-        res.render('index', {
-          name
-        })
-      })
+  models.PeopleGreeted.find({}, function(err, name) {
+    if (err) {
+      return err;
+    }
+    res.render('greeted-user', {
+      name
     })
-      app.get('/greeted/:name', function(req, res) {
-        let name = req.params.name;
-        models.PeopleGreeted.findOne({
-          name: name
-        }, function(err, name) {
-          if (err) {
-            console.log(err);
-          } else {
-            res.render('greeted', {
-              msg: 'Hi, ' + name.name + ' has been greeted ' + name.counter + ' time(s)!'
-            });
-          }
-        });
+  })
+})
+app.get('/greeted/:names', function(req, res) {
+  var name = req.params.names;
+  models.PeopleGreeted.findOne({
+    name: name
+  }, function(err, name) {
+    if (err) {
+      console.log(err);
+    } else {
+      res.render('greeted', {
+        msg: 'Hi, ' + name.name + ' has been greeted ' + name.counter + ' time(s)!'
       });
-      var port = 3000;
-      app.listen(process.env.PORT || port, function() {
-        console.log('app is now listening :' + port);
-      });
-
-      //const mongoURL = process.env.MONGO_DB_URL || "mongodb://localhost/index";
-      //mongoose.connect(mongoURL);
+    }
+  });
+});
+var port = 3000;
+app.listen(process.env.PORT || port, function() {
+  console.log('app is now listening :' + port);
+});

@@ -4,10 +4,13 @@ body{
   color: #00cc99;
 }
 h1{
-  
+
   font-size: 60px;
 }
 
 hr {
   visibility: hidden;
+}
+.linkForNames{
+  color: red;
 }

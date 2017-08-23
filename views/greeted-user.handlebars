@@ -1,0 +1,7 @@
+    <h1>Greetings App</h1>
+    <h2>Please click on name to view how many times it has been greeted</h2>
+    <form action="/greeted" method="post">
+      {{#each name }}
+      <br> <a class="linkForNames" href="/greeted/{{name}}">{{name}}<a></br>
+        {{/each}}
+      </form>
