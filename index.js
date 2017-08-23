@@ -2,8 +2,8 @@ var express = require('express')
 var exphbs = require('express-handlebars');
 var bodyParser = require('body-parser');
 var app = express()
-var mongoose = require('mongoose')
-var Schema = mongoose.Schema
+//var mongoose = require('mongoose')
+//var Schema = mongoose.Schema
 var models = require('./model')
 
 function storeName(name, cb) {

@@ -4,6 +4,11 @@ mongoose.connect(mongoURL, {
   useMongoClient: true
 });
 
+mongoose.connection.on("error", function(err){
+  console.log(err);
+  console.log(arguments);
+});
+
 exports.PeopleGreeted = mongoose.model('peoplegreeteds', {
   name: String,
   counter: Number
